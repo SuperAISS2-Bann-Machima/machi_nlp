@@ -1,9 +1,13 @@
+import { withController } from './hoc/withController'
+import { GlobalProvider, useController } from './core/GlobalController'
+
 function App() {
+  const global = useController()
   return (
     <div>
-		<h1>Machima</h1>
-	</div>
+      <h1>{global.test}</h1>
+    </div>
   );
 }
 
-export default App;
+export default withController(GlobalProvider)(App);
