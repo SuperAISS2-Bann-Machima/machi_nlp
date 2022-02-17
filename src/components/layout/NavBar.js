@@ -12,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { BACKGROUND, SECONDARY, } from "../../constant/colors";
 import { createTheme, ThemeProvider } from '@mui/material'
 import NavLogo from '../../assets/images/nav_logo.png'
+import { useNavigate } from 'react-router-dom'
 
 const pages = ["Home", "Products", "tutorial", "AI APIS"];
 const links = {
@@ -23,6 +24,8 @@ const links = {
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const navigate = useNavigate()
 
   const theme = createTheme({
     typography: {
@@ -37,7 +40,7 @@ const NavBar = () => {
   };
 
   const handleCloseNavMenu = (key) => {
-    console.log(links[key])
+    navigate(links[key])
     setAnchorElNav(null);
   };
 
