@@ -108,7 +108,7 @@ const NavBar = () => {
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: SECONDARY, display: "block" }}
+                  sx={{ my: 2, color: SECONDARY, display: "block", mx: 1 }}
                 >
                   {page}
                 </Button>
