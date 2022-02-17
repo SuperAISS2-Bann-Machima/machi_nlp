@@ -14,6 +14,12 @@ import { createTheme, ThemeProvider } from '@mui/material'
 import NavLogo from '../../assets/images/nav_logo.png'
 
 const pages = ["Home", "Products", "tutorial", "AI APIS"];
+const links = {
+  'Home': '/',
+  'Products': '/products',
+  'tutorial': '/tutorial',
+  'AI APIS': '/api',
+}
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -30,7 +36,8 @@ const NavBar = () => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (key) => {
+    console.log(links[key])
     setAnchorElNav(null);
   };
 
@@ -85,7 +92,7 @@ const NavBar = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu} style={{ color: SECONDARY }} sx={{ color: 'red' }} color='red' >
+                  <MenuItem key={page} onClick={() => handleCloseNavMenu(page)} style={{ color: SECONDARY }} sx={{ color: 'red' }} color='red' >
                     <Typography color={SECONDARY} textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
@@ -107,7 +114,7 @@ const NavBar = () => {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => handleCloseNavMenu(page)}
                   sx={{ my: 2, color: SECONDARY, display: "block", mx: 1 }}
                 >
                   {page}
