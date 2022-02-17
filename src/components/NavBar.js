@@ -9,10 +9,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { PRIMARY, WHITE } from "../constant/colors";
+import { PRIMARY, WHITE } from "../../src/constant/colors";
 import { makeStyles } from "@mui/styles";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Home", "Products", , "tutorial", "AI AIPS"];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
