@@ -2,7 +2,7 @@ import { CoreProvider, useController } from "./controller"
 import { withController } from '../../hoc/withController'
 import { makeStyles } from '@mui/styles'
 import DetailCard from "../../components/common/DetailCard"
-import { featureDetails } from '../../data/core'
+import { featureDetails, featureOverviews } from '../../data/core'
 import { Container, Grid, Typography } from "@mui/material"
 import cover from '../../assets/images/cover.png'
 import { BACKGROUND, INFO, WHITE } from "../../constant/colors"
@@ -45,9 +45,45 @@ function Core() {
                 </div>
                 {/* Cover */}
 
+                {/* Feature Overview */}
+                <div className={classes.overviewContainer}>
+                    <Grid container >
+                        {
+                            featureOverviews.map((item, ind) => (
+                                <Grid
+                                    item
+                                    key={ind}
+                                    xs={12}
+                                    md={4}
+                                    className={classes.overviewGridItem}>
+                                    <Typography className={classes.overviewValue} >{item.value}</Typography>
+                                    <Typography className={classes.overviewTitle}>{item.title}</Typography>
+                                </Grid>
+                            ))
+                        }
+                    </Grid>
+                </div>
+                {/* Feature Overview */}
+
                 {/* Feature Detail */}
-                <div>
-                    <Container>
+                <div className={classes.featureDetailContainer}>
+                    <Container sx={{ marginTop: 10 }}>
+                        <div className={classes.featureDetailDescBox}>
+                            <Typography
+                                className={classes.featureDetailHeader}
+                                variant='h3'
+                            >
+                                Features
+                            </Typography>
+                            <Typography
+                                className={classes.featureDetailDesc}
+                                variant='body1'
+                            >
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                            </Typography>
+                        </div>
+
+
                         <Grid container>
                             {
                                 featureDetails.map((item, ind) => (
@@ -64,6 +100,7 @@ function Core() {
                     </Container>
                 </div>
                 {/* Feature Detail */}
+
             </div>
         </>
     )
@@ -75,7 +112,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         width: '100%',
-        height: '85vh'
+        height: '92vh',
+        boxSizing: 'border-box'
     },
     coverBox: {
         width: '50%',
@@ -83,7 +121,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+        }
     },
     coverHeader1: {
         fontFamily: 'Luckiest Guy',
@@ -91,16 +132,55 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         color: BACKGROUND,
         lineHeight: 1,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 75
+        }
     },
     coverHeader2: {
         fontFamily: 'Single Day',
         fontSize: 100,
-        color: BACKGROUND
+        color: BACKGROUND,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 40
+        }
     },
     coverButtons: {
         display: 'flex',
         flexDirection: 'row',
         width: '50%',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            marginTop: 50
+        }
+    },
+    overviewContainer: {
+        width: '100%',
+        minHeight: 10,
+        background: 'linear-gradient(45deg, rgba(34,38,104,1) 0%, rgba(34,38,104,1) 0%, rgba(99,144,203,1) 100%)'
+    },
+    overviewGridItem: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 40,
+    },
+    overviewTitle: {
+        fontFamily: 'Single Day',
+        fontSize: 48,
+        lineHeight: 1,
+        color: WHITE
+    },
+    overviewValue: {
+        fontFamily: 'Skranji',
+        fontSize: 36,
+        lineHeight: 1,
+        color: WHITE
+    },
+    featureDetailContainer: {
+        backgroundColor: INFO,
+        border: `1px solid ${INFO}`,
+        paddingBottom: '50px'
     },
     featureDetail: {
         display: 'flex',
@@ -109,7 +189,21 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             margin: 5
         }
-    }
+    },
+    featureDetailDescBox: {
+        margin: 'auto',
+        marginBottom: 40,
+        color: BACKGROUND,
+        width: '60%',
+    },
+    featureDetailHeader: {
+        textAlign: 'center',
+        fontFamily: 'Prompt'
+    },
+    featureDetailDesc: {
+        textAlign: 'center',
+        fontFamily: 'Prompt'
+    },
 }))
 
 export default withController(CoreProvider)(Core)
