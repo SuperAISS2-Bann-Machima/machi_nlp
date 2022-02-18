@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NavBar from '../components/layout/NavBar'
-import Apis from '../features/apis'
+
 // Pages
 import Core from '../features/core'
+import Apis from '../features/apis'
 import NotFound from '../features/notfound'
 import Products from '../features/products'
 import Tutorial from '../features/tutorial'
