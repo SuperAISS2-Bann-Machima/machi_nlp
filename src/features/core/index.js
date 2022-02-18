@@ -2,10 +2,10 @@ import { CoreProvider, useController } from "./controller"
 import { withController } from '../../hoc/withController'
 import { makeStyles } from '@mui/styles'
 import DetailCard from "../../components/common/DetailCard"
-import { featureDetails, featureOverviews } from '../../data/core'
+import { featureDetails, featureOverviews, whyUs } from '../../data/core'
 import { Container, Grid, Typography } from "@mui/material"
 import cover from '../../assets/images/cover.png'
-import { BACKGROUND, INFO, WHITE } from "../../constant/colors"
+import { BACKGROUND, INFO, PRIMARY, SECONDARY, WHITE } from "../../constant/colors"
 import Button from '../../components/common/Button'
 
 function Core() {
@@ -101,12 +101,51 @@ function Core() {
                 </div>
                 {/* Feature Detail */}
 
+                {/* Why Us */}
+                <div className={classes.yusContainer}>
+                    <Container sx={{ my: 10 }}>
+                        <div className={classes.yusLabels}>
+                            <Typography className={classes.yusHeader1}>Why</Typography>
+                            <Typography className={classes.yusHeader1}>Choose Our</Typography>
+                            <Typography className={classes.yusHeader2}>Machi Quest</Typography>
+                            <Typography className={classes.yusHeader3}>Fuh Yoo~</Typography>
+                        </div>
+
+                        <div className={classes.yusList}>
+                            {
+                                whyUs.map((item, ind) => {
+                                    const title = `${ind + 1}. ${item.title}`
+                                    return (
+                                        <div key={ind} className={classes.yusListItem}>
+                                            <Typography className={classes.yusListItemTitle}>{title}</Typography>
+                                            <Typography className={classes.yusListItemDesc}>{item.desc}</Typography>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+
+                        <div className={classes.yusGetStart}>
+                            <Typography className={classes.yusHeader3}>
+                                Start Generate Question
+                            </Typography>
+                            <Button
+                                title="Get Start"
+                                colorBtn={BACKGROUND}
+                                sx={{ padding: 2, width: 225 }}
+                            />
+                        </div>
+                    </Container>
+                </div>
+                {/* Why Us */}
+
             </div>
         </>
     )
 }
 
 const useStyles = makeStyles((theme) => ({
+    // Cover Style
     coverContainer: {
         backgroundImage: `url(${cover})`,
         backgroundRepeat: 'no-repeat',
@@ -153,6 +192,9 @@ const useStyles = makeStyles((theme) => ({
             marginTop: 50
         }
     },
+    // Cover Style
+
+    // Overview Style
     overviewContainer: {
         width: '100%',
         minHeight: 10,
@@ -177,6 +219,9 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: 1,
         color: WHITE
     },
+    // Overview Style
+
+    // Feature Detail
     featureDetailContainer: {
         backgroundColor: INFO,
         border: `1px solid ${INFO}`,
@@ -204,6 +249,63 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         fontFamily: 'Prompt'
     },
+    // Feature Detail
+
+    // Why Us
+    yusContainer: {
+        backgroundColor: WHITE,
+        border: `1px solid ${WHITE}`,
+        marginBottom: '200px'
+    },
+    yusLabels: {
+        fontFamily: 'Prompt'
+    },
+    yusHeader1: {
+        fontFamily: 'Prompt',
+        fontSize: 52,
+        color: BACKGROUND,
+        lineHeight: 1.25
+    },
+    yusHeader2: {
+        fontFamily: 'Prompt',
+        fontSize: 48,
+        color: PRIMARY,
+        lineHeight: 0.75
+    },
+    yusHeader3: {
+        fontFamily: 'Prompt',
+        fontSize: 32,
+        color: PRIMARY
+    },
+    yusList: {
+
+    },
+    yusListItem: {
+        marginTop: 40
+    },
+    yusListItemTitle: {
+        fontFamily: 'Prompt',
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: BACKGROUND,
+        lineHeight: 1
+    },
+    yusListItemDesc: {
+        fontFamily: 'Prompt',
+        fontSize: 20,
+        color: SECONDARY
+    },
+    yusGetStart: {
+        marginTop: 125,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    yusGetStartButton: {
+
+    }
+    // Why Us
 }))
 
 export default withController(CoreProvider)(Core)
