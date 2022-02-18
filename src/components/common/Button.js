@@ -17,6 +17,12 @@ export default function Button({
                 contrastText: textColor
             },
         },
+        typography: {
+            fontFamily: 'Prompt',
+            allVariants: {
+                textTransform: 'none'
+            },
+        }
     })
 
     return (
