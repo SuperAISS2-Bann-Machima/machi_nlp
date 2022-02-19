@@ -10,15 +10,7 @@ import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+import Container from "@mui/material/Container";
 
 const card = (
   <React.Fragment>
@@ -31,33 +23,37 @@ const card = (
         <OutlinedInput id="outlined-adornment-amount" label="Amount" />
       </FormControl>
     </CardContent>
-    <CardActions>
+    <CardActions sx={{ flexDirection: "row-reverse" }}>
       <Button variant="outlined">เริ่มเลย!</Button>
     </CardActions>
   </React.Fragment>
 );
 
-const useStyles = makeStyles((theme) => ({
-  featureDetail: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    [theme.breakpoints.down("md")]: {
-      margin: 5,
-    },
-  },
-}));
+const card_api = (
+  <React.Fragment>
+    <CardContent>
+      <h2>Task1: word secmentation</h2>
+      <p>สวัสดี || ครับ || ทุกคน</p>
+    </CardContent>
+  </React.Fragment>
+);
 
 function APIS() {
   const controller = useController();
 
   return (
-    <>
-      <h1>{controller.test}</h1>
+    <Container>
       <Box>
-        <Card variant="outlined">{card}</Card>
+        <Card variant="outlined" sx={{ m: 1 }}>
+          {card}
+        </Card>
       </Box>
-    </>
+      <Box>
+        <Card variant="outlined" sx={{ m: 1 }}>
+          {card_api}
+        </Card>
+      </Box>
+    </Container>
   );
 }
 
