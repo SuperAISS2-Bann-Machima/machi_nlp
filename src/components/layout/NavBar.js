@@ -96,7 +96,7 @@ const NavBar = () => {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={() => handleCloseNavMenu(page)} style={{ color: SECONDARY }} sx={{ color: 'red' }} color='red' >
-                    <Typography color={SECONDARY} textAlign="center">{page}</Typography>
+                    <Typography color={SECONDARY} sx={{ fontFamily: 'Prompt' }} textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -118,7 +118,7 @@ const NavBar = () => {
                 <Button
                   key={page}
                   onClick={() => handleCloseNavMenu(page)}
-                  sx={{ my: 2, color: SECONDARY, display: "block", mx: 1 }}
+                  sx={{ my: 2, color: SECONDARY, display: "block", mx: 1, fontFamily: 'Prompt' }}
                 >
                   {page}
                 </Button>
