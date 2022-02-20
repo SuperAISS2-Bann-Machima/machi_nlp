@@ -19,8 +19,18 @@ function Pat() {
     <Container maxWidth="lg">
       <Paper sx={{ m: 2, bgcolor: "#fff", height: "100vh" }}>
         <Typography
-          variant="h4"
-          sx={{ pl: 5, pr: 5, pt: 5, pb: 1, color: "#6390CB" }}
+          variant="h5"
+          sx={{
+            pl: 5,
+            pr: 5,
+            pt: 5,
+            pb: 1,
+            fontFamily: "Prompt",
+            fontWeight: "bolder",
+            background: "linear-gradient(45deg,#222668 30%, #6390CB 90%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
         >
           RQA Generator
         </Typography>
@@ -35,29 +45,25 @@ function Pat() {
           senectus. Euismod gravida pharetra ipsum, egestas bibendum ac diam.
           Blandit posuere
         </Typography>
-        {/* <Box sx={{ textAlign: "left", pl: 2, m: 2 }}></Box> */}
-
-        {/* <Box
-          sx={{
-            textAlign: "left",
-            pt: 5,
-            m: 5,
-            lineHeight: 2,
-            fontWeight: 500,
-            fontSize: 24,
-            color: "#6390CB",
-          }}
-        >
-          <Grid container alignContent="flex-end"></Grid>
-        </Box>
-        <UploadText />
-        <Buttons /> */}
 
         {/* Start Grid */}
         <Grid container spacing={5} sx={{ pl: 5, pr: 5 }}>
           {/* Start Left Grid */}
           <Grid item xs={6}>
-            <Typography sx={{ pl: 5, pr: 5, pt: 2, pb: 2 }} align="center">
+            <Typography
+              sx={{
+                pl: 5,
+                pr: 5,
+                pt: 2,
+                pb: 2,
+                fontFamily: "Prompt",
+                fontWeight: "bolder",
+                background: "linear-gradient(45deg,#222668 30%, #6390CB 90%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+              align="center"
+            >
               Put your text file
             </Typography>
             {/* Start Upload Text  */}
@@ -100,13 +106,34 @@ function Pat() {
               justifyContent="center"
               alignItems="center"
             >
-              <Button variant="contained">Generate</Button>
+              <Button
+                variant="contained"
+                sx={{
+                  background: "linear-gradient(45deg,#222668 30%, #6390CB 90%)",
+                  width: 200,
+                }}
+              >
+                Generate
+              </Button>
             </Grid>
           </Grid>
           {/* End Left Grid */}
           {/* Start Right Grid */}
           <Grid item xs={6}>
-            <Typography sx={{ pl: 5, pr: 5, pt: 2, pb: 2 }} align="center">
+            <Typography
+              sx={{
+                pl: 5,
+                pr: 5,
+                pt: 2,
+                pb: 2,
+                fontFamily: "Prompt",
+                fontWeight: "bolder",
+                background: "linear-gradient(45deg,#222668 30%, #6390CB 90%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+              align="center"
+            >
               And get your quesion
             </Typography>
             <Box

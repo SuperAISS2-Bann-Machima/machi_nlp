@@ -37,7 +37,14 @@ function UploadText() {
       >
         <Grid container spacing={2}>
           <Grid item>
-            <Button variant="contained" size="small">
+            <Button
+              variant="contained"
+              size="small"
+              sx={{
+                background: "linear-gradient(45deg,#6390CB 30%, #7DC8DB 90%)",
+                width: 200,
+              }}
+            >
               choose file
             </Button>
           </Grid>
