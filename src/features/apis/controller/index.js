@@ -33,6 +33,7 @@ export function APISProvider({ children }) {
     const [pos, setPos] = useState({})
     const [ner, setNer] = useState({})
 
+
     // Function that handle called WordSegmentAPI
     function WordSegmentHandle() {
         let result = ''
@@ -54,7 +55,6 @@ export function APISProvider({ children }) {
         }).catch(err => {
             console.log(err);
         })
-
     }
 
     // Function that handle called POS Tagging

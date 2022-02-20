@@ -26,54 +26,58 @@ function APIS() {
         </Card>
       </Box>
 
-      {/* Task1 */}
-      <Box>
-        <Card variant="outlined" sx={{ m: 1 }}>
-          <ApiOutputCard title="Task 1 Word Segment">
-            <Typography sx={{ fontFamily: 'Prompt' }}>
-              {controller.wordSeg}
-            </Typography >
-          </ApiOutputCard>
-        </Card>
-      </Box>
-      {/* Task1 */}
+      {
+        !controller.wordSeg ? (<></>) : (<>
+          {/* Task1 */}
+          <Box>
+            <Card variant="outlined" sx={{ m: 1 }}>
+              <ApiOutputCard title="Task 1 Word Segment">
+                <Typography sx={{ fontFamily: 'Prompt' }}>
+                  {controller.wordSeg}
+                </Typography >
+              </ApiOutputCard>
+            </Card>
+          </Box>
+          {/* Task1 */}
 
-      {/* Task2 */}
-      <Box>
-        <Card variant="outlined" sx={{ m: 1 }}>
-          <ApiOutputCard title="Task 2 POS Tagging">
-            <OutputJson>
-              <ReactJson name='POS tagging' src={controller.pos} />
-            </OutputJson>
-          </ApiOutputCard>
-        </Card>
-      </Box>
-      {/* Task2 */}
+          {/* Task2 */}
+          <Box>
+            <Card variant="outlined" sx={{ m: 1 }}>
+              <ApiOutputCard title="Task 2 POS Tagging">
+                <OutputJson>
+                  <ReactJson name='POS tagging' src={controller.pos} />
+                </OutputJson>
+              </ApiOutputCard>
+            </Card>
+          </Box>
+          {/* Task2 */}
 
-      {/* Task3 */}
-      <Box>
-        <Card variant="outlined" sx={{ m: 1 }}>
-          <ApiOutputCard title="Task 3 NER">
-            <OutputJson>
-              <ReactJson name='NER' src={controller.ner} />
-            </OutputJson>
-          </ApiOutputCard>
-        </Card>
-      </Box>
-      {/* Task3 */}
+          {/* Task3 */}
+          <Box>
+            <Card variant="outlined" sx={{ m: 1 }}>
+              <ApiOutputCard title="Task 3 NER">
+                <OutputJson>
+                  <ReactJson name='NER' src={controller.ner} />
+                </OutputJson>
+              </ApiOutputCard>
+            </Card>
+          </Box>
+          {/* Task3 */}
 
-      {/* Task4 */}
-      <Box>
-        <Card variant="outlined" sx={{ m: 1 }}>
-          <ApiOutputCard title="Task 4 Sentence Segment">
-            <Typography sx={{ fontFamily: 'Prompt' }}>
-              {controller.senSeg}
-            </Typography>
-          </ApiOutputCard>
-        </Card>
-      </Box>
-      {/* Task4 */}
-    </Container>
+          {/* Task4 */}
+          <Box>
+            <Card variant="outlined" sx={{ m: 1 }}>
+              <ApiOutputCard title="Task 4 Sentence Segment">
+                <Typography sx={{ fontFamily: 'Prompt' }}>
+                  {controller.senSeg}
+                </Typography>
+              </ApiOutputCard>
+            </Card>
+          </Box>
+          {/* Task4 */}
+        </>)
+      }
+    </Container >
   );
 }
 
@@ -81,7 +85,8 @@ const OutputJson = ({ children }) => (
   <div
     style={{
       width: '100%',
-      height: '350px',
+      minHeight: '200px',
+      maxHeight: '350px',
       overflowY: 'auto'
     }}
   >
