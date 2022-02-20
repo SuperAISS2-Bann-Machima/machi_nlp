@@ -7,6 +7,7 @@ import Apis from '../features/apis'
 import NotFound from '../features/notfound'
 import Products from '../features/products'
 import Tutorial from '../features/tutorial'
+import Pat from '../features/pat'
 export default function Index() {
     return (
         <Router>
@@ -15,6 +16,7 @@ export default function Index() {
                 <Route exact path='/tutorial' element={<Tutorial />} />
                 <Route exact path='/api' element={<Apis />} />
                 <Route exact path='/products' element={<Products />} />
+                <Route exact path='/pat' element={<Pat />} />
                 <Route exact path='/' element={<Core />} />
                 {/* NOT FOUND URL WILL REDIRECT TO THIS PAGE */}
                 <Route path='*' element={<NotFound />} />
