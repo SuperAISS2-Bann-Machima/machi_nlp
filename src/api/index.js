@@ -27,6 +27,13 @@ export function PosAPI(data) {
     })
 }
 
+// NER
+export function NerAPI(data) {
+    return client.post('/ner', {
+        text: data
+    })
+}
+
 // Sentence Segmentation
 export function SentenceSegmentAPI(data) {
     return client.post('/ss', {

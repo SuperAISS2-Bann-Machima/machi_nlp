@@ -1,5 +1,5 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import { WordSegmentAPI, QuestionGenrationAPI, SentenceSegmentAPI, PosAPI } from '../../../api'
+import { WordSegmentAPI, SentenceSegmentAPI, PosAPI, NerAPI } from '../../../api'
 import { convertSentenceSegResponse_to_SentenceSegResult } from "../utils/convert";
 
 const context = createContext()
@@ -18,6 +18,7 @@ class Controller {
         this.wordSeg = context.wordSeg
         this.senSeg = context.senSeg
         this.pos = context.pos
+        this.ner = context.ner
     }
 }
 
@@ -30,6 +31,7 @@ export function APISProvider({ children }) {
     const [wordSegWhiteSpace, setWordSegWhiteSpace] = useState('')
     const [senSeg, setSenSeg] = useState('')
     const [pos, setPos] = useState({})
+    const [ner, setNer] = useState({})
 
     // Function that handle called WordSegmentAPI
     function WordSegmentHandle() {
@@ -64,6 +66,15 @@ export function APISProvider({ children }) {
         })
     }
 
+    // Function that handke called NER
+    function NerHandle() {
+        NerAPI(wordSegWhiteSpace).then(res => {
+            setNer(res.data.resp)
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
     // Function that handle called SentenceSegmentAPI
     function SentenceSegmentHandle() {
         SentenceSegmentAPI(wordSegWhiteSpace).then(res => {
@@ -82,6 +93,7 @@ export function APISProvider({ children }) {
         if (wordSegWhiteSpace.length) {
             SentenceSegmentHandle()
             PosHandle()
+            NerHandle()
         }
     }, [wordSegWhiteSpace])
 
@@ -91,7 +103,7 @@ export function APISProvider({ children }) {
                 paragraph, setParagraph,
                 ProcessingHandle,
                 wordSeg, senSeg,
-                pos, setPos
+                pos, ner
             }}
         >
             {children}
