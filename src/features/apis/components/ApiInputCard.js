@@ -5,12 +5,13 @@ import { makeStyles } from "@mui/styles"
 export default function ProductInputCard({
     onChange = (e) => { },
     value = '',
-    maxLength = 300
+    maxLength = 300,
+    onClick = () => { }
 }) {
     const classes = useStyles()
     return (
         <>
-            <CardContent>
+            <CardContent sx={{ padding: 4 }}>
                 <Typography variant="h5" className={classes.header}>
                     Machima NLP
                 </Typography>
@@ -23,11 +24,16 @@ export default function ProductInputCard({
                                 onChange(e)
                         }}
                         value={value}
+                        helperText={`${value.length}/${maxLength}`}
                     />
                 </FormControl>
             </CardContent>
-            <CardActions sx={{ flexDirection: "row-reverse" }}>
-                <Button title="เริ่มเลย!" sx={{ background: 'linear-gradient(45deg, #222668 30%, #6390CB 90%)', width: 100 }} />
+            <CardActions sx={{ flexDirection: "row-reverse", px: 4, paddingBottom: 4 }}>
+                <Button
+                    title="เริ่มเลย!"
+                    sx={{ background: 'linear-gradient(45deg, #222668 30%, #6390CB 90%)', width: 100 }}
+                    onClick={onClick}
+                />
             </CardActions>
         </ >
     )

@@ -21,6 +21,7 @@ function APIS() {
             onChange={e => controller.setParagraph(e.target.value)}
             value={controller.paragraph}
             maxLength={300}
+            onClick={controller.ProcessingHandle}
           />
         </Card>
       </Box>
@@ -30,7 +31,7 @@ function APIS() {
         <Card variant="outlined" sx={{ m: 1 }}>
           <ApiOutputCard title="Task 1 Word Segment">
             <Typography sx={{ fontFamily: 'Prompt' }}>
-              หมายเหตุ | | deepcut | | ตอน | นี้ | ถูก | ผนวก | เข้า | กับ | | โมดูล | | pythainlp | | จึง | สามารถ | เรียก | ผ่าน | | pythainlp | | ได้ | เช่น | กัน
+              {controller.wordSeg}
             </Typography >
           </ApiOutputCard>
         </Card>
@@ -66,7 +67,7 @@ function APIS() {
         <Card variant="outlined" sx={{ m: 1 }}>
           <ApiOutputCard title="Task 4 Sentence Segment">
             <Typography sx={{ fontFamily: 'Prompt' }}>
-              หมายเหตุ | | deepcut ตอนนี้ถูกผนวกเข้ากับโมดูล pythainlp | | จึงสามารถเรียกผ่าน pythainlp ได้ | | เช่นกัน
+              {controller.senSeg}
             </Typography>
           </ApiOutputCard>
         </Card>
