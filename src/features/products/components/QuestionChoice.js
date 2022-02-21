@@ -54,7 +54,7 @@ export default function QuestionChoice({
                                 className={clsx({
                                     [classes.normal]: !isAnswer,
                                     [classes.success]: isAnswer && ind === ansid,
-                                    [classes.error]: isAnswer && ind !== ansid
+                                    // [classes.error]: isAnswer && ind !== ansid
                                 })}
                             />
                         ))

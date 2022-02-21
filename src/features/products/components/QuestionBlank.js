@@ -1,5 +1,5 @@
 import { Paper, TextField, Typography } from "@mui/material";
-import { WHITE } from "../../../constant/colors";
+import { ERROR, WHITE } from "../../../constant/colors";
 
 export default function QuestionBlank({ index, question, answer, isAnswer }) {
     return (
@@ -35,6 +35,11 @@ export default function QuestionBlank({ index, question, answer, isAnswer }) {
                     fullWidth
                     variant="standard"
                     helperText={isAnswer ? 'Answer: ' + answer : ''}
+                    FormHelperTextProps={{
+                        style: {
+                            color: ERROR
+                        }
+                    }}
                 />
             </Paper>
         </>
