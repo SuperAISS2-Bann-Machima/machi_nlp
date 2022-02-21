@@ -1,4 +1,4 @@
-import { Box, Container, Divider, FormControlLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material'
+import { Box, Container, FormControlLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import clsx from 'clsx'
 import UploadText from '../../components/common/UploadText'
