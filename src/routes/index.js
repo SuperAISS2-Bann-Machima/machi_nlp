@@ -13,10 +13,10 @@ export default function Index() {
         <Router>
             <NavBar />
             <Routes>
-                <Route exact path='/tutorial' element={<Tutorial />} />
+                {/* <Route exact path='/tutorial' element={<Tutorial />} /> */}
                 <Route exact path='/api' element={<Apis />} />
                 <Route exact path='/products' element={<Products />} />
-                <Route exact path='/pat' element={<Pat />} />
+                {/* <Route exact path='/products' element={<Pat />} /> */}
                 <Route exact path='/' element={<Core />} />
                 {/* NOT FOUND URL WILL REDIRECT TO THIS PAGE */}
                 <Route path='*' element={<NotFound />} />

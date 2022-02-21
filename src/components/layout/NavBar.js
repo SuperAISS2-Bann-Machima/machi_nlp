@@ -14,11 +14,16 @@ import { createTheme, ThemeProvider } from '@mui/material'
 import NavLogo from '../../assets/images/nav_logo.png'
 import { useNavigate } from 'react-router-dom'
 
-const pages = ["Home", "Products", "tutorial", "AI APIS"];
+const pages = [
+  "Home",
+  "Products",
+  // "tutorial",
+  "AI APIS"
+];
 const links = {
   'Home': '/',
   'Products': '/products',
-  'tutorial': '/tutorial',
+  // 'tutorial': '/tutorial',
   'AI APIS': '/api',
 }
 

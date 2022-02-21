@@ -43,7 +43,7 @@ export function SentenceSegmentAPI(data) {
 
 // Question Generation
 export function QuestionGenrationAPI(data, type = 'BLK') {
-    return client.post('/aq', {
+    return client.post('/apis/aq', {
         token: token,
         anstype: type,
         sentence: data

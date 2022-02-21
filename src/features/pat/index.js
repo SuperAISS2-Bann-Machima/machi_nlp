@@ -16,8 +16,8 @@ import UploadText from "../../components/common/UploadText";
 
 function Pat() {
   return (
-    <Container maxWidth="lg">
-      <Paper sx={{ m: 2, bgcolor: "#fff", height: "100vh" }}>
+    <Container maxWidth="xl" sx={{ my: 10 }}>
+      <Paper sx={{ m: 2, paddingBottom: 10, bgcolor: "#fff", minHeight: '100vh', maxHeight: '200vh', overflowY: 'auto' }}>
         <Typography
           variant="h5"
           sx={{
@@ -87,11 +87,6 @@ function Pat() {
                     label="Choices"
                   />
                   <FormControlLabel
-                    value="True/False"
-                    control={<Radio />}
-                    label="True/False"
-                  />
-                  <FormControlLabel
                     value="Blank"
                     control={<Radio />}
                     label="Blank"
@@ -142,7 +137,10 @@ function Pat() {
                 backgroundColor: (theme) =>
                   theme.palette.mode === "dark" ? "#1A2027" : "#F3F1F1",
               }}
-            ></Box>
+            >
+              {/* Question */}
+
+            </Box>
           </Grid>
           {/* End Right Grid */}
         </Grid>
