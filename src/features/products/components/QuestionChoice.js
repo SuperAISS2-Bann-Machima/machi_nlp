@@ -2,7 +2,7 @@ import { FormControlLabel, Paper, Radio, RadioGroup, Typography } from "@mui/mat
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import { useState } from "react";
-import { ERROR, SUCCESS, WHITE } from "../../../constant/colors";
+import { ERROR, WHITE } from "../../../constant/colors";
 
 export default function QuestionChoice({
     index,
@@ -70,7 +70,7 @@ const useStyles = makeStyles({
         color: '#000'
     },
     success: {
-        color: SUCCESS
+        color: 'green'
     },
     error: {
         color: ERROR
