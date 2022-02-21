@@ -50,7 +50,7 @@ function Products() {
                             </Typography>
 
                             <UploadText onChange={result => {
-                                console.log(result);
+
                             }} />
 
                             <RadioGroup
@@ -60,6 +60,7 @@ function Products() {
                                 onChange={e => { controller.setAnstype(e.target.value) }}
                             >
                                 <FormControlLabel label='Choices' control={<Radio />} value="MUL" />
+                                <FormControlLabel label='String' control={<Radio />} value="STR" />
                                 <FormControlLabel label='Blank' control={<Radio />} value="BLK" />
                             </RadioGroup>
 

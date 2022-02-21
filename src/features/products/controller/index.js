@@ -27,6 +27,8 @@ export function ProductsProvider({ children }) {
     const [anstype, setAnstype] = useState('MUL')
     const [isAnswer, setIsAnswer] = useState(false)
 
+    const [file, setFile] = useState()
+
     function empytyHandle() {
         setIsAnswer(false)
         setQuestions([])
@@ -34,8 +36,9 @@ export function ProductsProvider({ children }) {
 
     function QuestionGenerationHandle() {
         empytyHandle()
+        const data = btoa(file)
 
-        QuestionGenrationAPI('', anstype).then(res => {
+        QuestionGenrationAPI(data, anstype).then(res => {
             setQuestions(res.data.resp)
         }).catch(err => {
             console.log(err)
@@ -48,7 +51,7 @@ export function ProductsProvider({ children }) {
                 QuestionGenerationHandle,
                 anstype, setAnstype,
                 isAnswer, setIsAnswer,
-                questions
+                questions, setFile
             }}
         >
             {children}
