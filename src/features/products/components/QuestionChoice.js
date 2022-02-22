@@ -20,7 +20,7 @@ export default function QuestionChoice({
                 sx={{
                     width: '100%',
                     backgroundColor: WHITE,
-                    minHeight: 200,
+                    height: 'max-content',
                     my: 1,
                     p: 5,
                     boxSizing: 'border-box'
@@ -31,7 +31,8 @@ export default function QuestionChoice({
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        fontFamily: 'Prompt'
+                        fontFamily: 'Prompt',
+                        wordBreak: 'break-all'
                     }}
                 >
                     <Typography component='strong'>
@@ -54,7 +55,6 @@ export default function QuestionChoice({
                                 className={clsx({
                                     [classes.normal]: !isAnswer,
                                     [classes.success]: isAnswer && ind === ansid,
-                                    // [classes.error]: isAnswer && ind !== ansid
                                 })}
                             />
                         ))

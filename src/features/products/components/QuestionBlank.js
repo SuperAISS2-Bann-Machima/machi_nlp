@@ -8,10 +8,10 @@ export default function QuestionBlank({ index, question, answer, isAnswer }) {
                 sx={{
                     width: '100%',
                     backgroundColor: WHITE,
-                    minHeight: 200,
+                    height: 'max-content',
                     my: 1,
                     p: 5,
-                    boxSizing: 'border-box'
+                    boxSizing: 'border-box',
                 }}
             >
                 <Typography
@@ -19,7 +19,8 @@ export default function QuestionBlank({ index, question, answer, isAnswer }) {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        fontFamily: 'Prompt'
+                        fontFamily: 'Prompt',
+                        wordBreak: 'break-all'
                     }}
                 >
                     <Typography component='strong'>

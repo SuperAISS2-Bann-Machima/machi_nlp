@@ -97,7 +97,7 @@ function Products() {
                                     justifyContent: 'flex-start',
                                     alignItems: 'center',
                                     p: 2,
-                                    overflowY: 'auto'
+                                    overflowY: 'auto',
                                 }}
                             >
                                 {
