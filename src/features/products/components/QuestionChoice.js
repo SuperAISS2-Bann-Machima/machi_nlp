@@ -56,6 +56,7 @@ export default function QuestionChoice({
                                     [classes.normal]: !isAnswer,
                                     [classes.success]: isAnswer && ind === ansid,
                                 })}
+                                sx={{ wordBreak: 'break-word', my: 1 }}
                             />
                         ))
                     }
