@@ -1,4 +1,4 @@
-import { FormControlLabel, Paper, Radio, RadioGroup, Typography } from "@mui/material";
+import { FormControlLabel, Paper, Radio, RadioGroup, Switch, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import { useState } from "react";
@@ -13,6 +13,7 @@ export default function QuestionChoice({
 }) {
     const classes = useStyles()
     const [selected, setSelected] = useState(null)
+    const [ownAnswer, setOwnAnswer] = useState(false)
 
     return (
         <>
@@ -54,13 +55,30 @@ export default function QuestionChoice({
                                 value={ind}
                                 className={clsx({
                                     [classes.normal]: !isAnswer,
-                                    [classes.success]: isAnswer && ind === ansid,
+                                    [classes.success]: (isAnswer || ownAnswer) && ind === ansid,
                                 })}
                                 sx={{ wordBreak: 'break-word', my: 1 }}
                             />
                         ))
                     }
                 </RadioGroup>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center'
+                    }}
+                >
+                    <FormControlLabel
+                        label='answer'
+                        control={
+                            <Switch value={ownAnswer} />
+                        }
+                        onClick={(e) => setOwnAnswer(e.target.checked)}
+                    />
+                </div>
             </Paper>
         </>
     )
