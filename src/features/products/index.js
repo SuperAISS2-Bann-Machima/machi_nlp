@@ -150,7 +150,9 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 5,
         padding: 30,
         minHeight: '100vh',
-        maxHeight: '200vh'
+        [theme.breakpoints.up('sm')]: {
+            maxHeight: '200vh',
+        }
     },
     headerTitle: {
         fontFamily: "Prompt",
