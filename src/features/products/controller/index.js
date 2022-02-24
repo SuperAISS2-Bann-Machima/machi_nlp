@@ -21,6 +21,7 @@ class Controller {
         this.questions = context.questions;
 
         this.setFile = context.setFile
+        this.file = context.file
     }
 }
 
@@ -59,7 +60,7 @@ export function ProductsProvider({ children }) {
                 isAnswer,
                 setIsAnswer,
                 questions,
-                setFile,
+                setFile, file
             }}
         >
             {children}

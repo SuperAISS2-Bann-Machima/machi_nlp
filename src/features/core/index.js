@@ -20,13 +20,14 @@ function Core() {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const CoverButton = ({ title, colorBtn, textColor, onClick = () => {} }) => (
+  const CoverButton = ({ title, colorBtn, textColor, onClick = () => { }, ...props }) => (
     <Button
       title={title}
       colorBtn={colorBtn}
       textColor={textColor}
       onClick={onClick}
       sx={{ margin: 1, padding: 1 }}
+      {...props}
     />
   );
 
@@ -39,9 +40,9 @@ function Core() {
             <Grow in={true} {...{ timeout: 1000 }}>
               <div>
                 <Typography className={classes.coverHeader1}>
-                  MACHI
-                  <br />
-                  QG
+                  MACHI QG!
+                  {/* <br /> */}
+                  {/* QG */}
                 </Typography>
                 {/* <Typography className={classes.coverHeader2}>Foo</Typography> */}
               </div>
@@ -56,11 +57,14 @@ function Core() {
               />
               <CoverButton
                 title="Learn more"
-                colorBtn={INFO}
-                textColor={BACKGROUND}
+                // colorBtn={INFO}
+                // textColor={BACKGROUND}
+                colorBtn={BACKGROUND}
+                textColor={WHITE}
                 onClick={() => {
                   document.getElementById("overview").scrollIntoView();
                 }}
+                variant='outlined'
               />
             </div>
           </div>

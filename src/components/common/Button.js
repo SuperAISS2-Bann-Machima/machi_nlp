@@ -4,6 +4,7 @@ import { createTheme, Button as Btn, ThemeProvider } from '@mui/material'
 export default function Button({
     colorBtn = PRIMARY,
     textColor = WHITE,
+    variant = 'contained',
     title = 'กด',
     icon = null,
     onClick = () => { },
@@ -29,7 +30,7 @@ export default function Button({
         <ThemeProvider theme={theme}>
             <Btn
                 fullWidth
-                variant='contained'
+                variant={variant}
                 color='primary'
                 startIcon={icon}
                 onClick={onClick}

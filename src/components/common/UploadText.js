@@ -2,8 +2,7 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Grid, Typography, Box, Button } from "@mui/material";
 
-function UploadText({ onChange = (result) => { } }) {
-  const [Content, setContent] = useState("");
+function UploadText({ file, onChange = (result) => { } }) {
   const [FileName, setFileName] = useState("");
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -14,7 +13,6 @@ function UploadText({ onChange = (result) => { } }) {
       reader.onload = function (e) {
         var content = reader.result;
         var fileName = file.name;
-        setContent(content);
         onChange(content)
         setFileName(fileName);
       };
@@ -69,7 +67,7 @@ function UploadText({ onChange = (result) => { } }) {
         </Grid>
       </Box>
 
-      {Content && (
+      {file && (
         <Box
           sx={{
             textAlign: "left",
@@ -91,7 +89,7 @@ function UploadText({ onChange = (result) => { } }) {
             component="div"
 
           >
-            {Content}
+            {file}
           </Typography>
         </Box>
       )}

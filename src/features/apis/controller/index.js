@@ -1,5 +1,6 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import { WordSegmentAPI, SentenceSegmentAPI, PosAPI, NerAPI } from '../../../api'
+import { tempApisPassege } from "../../../data/apis";
 import { convertSentenceSegResponse_to_SentenceSegResult } from "../utils/convert";
 
 const context = createContext()
@@ -25,7 +26,7 @@ class Controller {
 
 export function APISProvider({ children }) {
 
-    const [paragraph, setParagraph] = useState('')
+    const [paragraph, setParagraph] = useState(tempApisPassege)
 
     const [wordSeg, setWordSeg] = useState('')
     const [wordSegWhiteSpace, setWordSegWhiteSpace] = useState('')

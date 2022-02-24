@@ -17,6 +17,7 @@ import Button from "../../components/common/Button";
 import QuestionBlank from "./components/QuestionBlank";
 import QuestionAnswer from "./components/QuestionAnswer";
 import QuestionChoice from "./components/QuestionChoice";
+import { example1 } from '../../data/products'
 
 function Products() {
   const controller = useController();
@@ -59,16 +60,14 @@ function Products() {
               </Typography>
 
               <div
-                style={{
-
-                }}
+                className={classes.contentExampleContainer}
               >
-                <Button title='Example 1' />
-                <Button title='Example 2' />
-                <Button title='Example 3' />
+                <Button title='Example 1' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
+                <Button title='Example 2' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
+                <Button title='Example 3' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
               </div>
 
-              <UploadText onChange={(result) => {
+              <UploadText file={controller.file} onChange={(result) => {
                 controller.setFile(result)
               }} />
 
@@ -210,6 +209,25 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     marginBottom: 10,
   },
+  contentExampleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 20,
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+  },
+  contentExampleButton: {
+    [theme.breakpoints.down('md')]: {
+      marginTop: 10,
+      marginBottom: 10
+    }
+  }
 }));
 
 export default withController(ProductsProvider)(Products);
