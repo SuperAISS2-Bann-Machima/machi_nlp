@@ -50,18 +50,23 @@ export default function QuestionBlank({ index, question, answer, isAnswer, handl
                     }}
                 />
 
-                <div
-                    className={classes.actionContainer}
-                >
-                    {/* <FormControlLabel
-                        label='answer'
-                        control={
-                            <Switch value={ownAnswer} />
-                        }
-                        onClick={(e) => setOwnAnswer(e.target.checked)}
-                    /> */}
-                    <Button icon={ownAnswer ? <Visibility /> : <VisibilityOff />} title='Answer' sx={{ width: 110, mx: 1 }} onClick={() => setOwnAnswer(!ownAnswer)} />
-                    <Button icon={<ReportIcon />} title='Report' sx={{ width: 110, mx: 1 }} variant='outlined' onClick={handleSendReport} />
+                <div className={classes.actionContainer}>
+                    <Button
+                        className={classes.actionButton}
+                        icon={ownAnswer ? <Visibility /> : <VisibilityOff />}
+                        title='Answer'
+                        sx={{ width: 110, mx: 1 }}
+                        onClick={() => setOwnAnswer(!ownAnswer)}
+                    />
+
+                    <Button
+                        className={classes.actionButton}
+                        icon={<ReportIcon />}
+                        title='Report'
+                        sx={{ width: 110, mx: 1 }}
+                        variant='outlined'
+                        onClick={handleSendReport}
+                    />
                 </div>
             </Paper>
         </>
@@ -78,6 +83,13 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             flexDirection: 'column',
             justifyContent: 'center',
+        }
+    },
+    actionButton: {
+        width: 110,
+        margin: 5,
+        [theme.breakpoints.down('sm')]: {
+            width: '100%'
         }
     }
 }))

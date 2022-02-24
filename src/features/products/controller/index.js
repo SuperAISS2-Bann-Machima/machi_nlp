@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { QuestionGenrationAPI } from "../../../api";
+import { QuestionGenrationAPI, AddReport } from "../../../api";
 import base64 from 'base64-utf8'
 import { useController as useGlobalController } from '../../../core/GlobalController'
 
@@ -42,8 +42,15 @@ export function ProductsProvider({ children }) {
 
     const [qgLoading, setQgLoading] = useState(false)
 
-    function sendReportHandle(index) {
-        global.setFlashMsg({ type: 'success', msg: `ส่งคำร้องข้อ ${index} สำเร็จ`, open: true })
+    function sendReportHandle(data = {
+        index: 0,
+        question: '',
+        answer: '',
+        reports: []
+    }) {
+        AddReport(data).then(() => {
+            global.setFlashMsg({ type: 'success', msg: `ส่งคำร้องข้อ ${data.index} สำเร็จ`, open: true })
+        }).catch(err => console.log(err))
     }
 
     function empytyHandle() {

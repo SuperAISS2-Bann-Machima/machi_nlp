@@ -18,13 +18,28 @@ import Button from "../../components/common/Button";
 import QuestionBlank from "./components/QuestionBlank";
 import QuestionAnswer from "./components/QuestionAnswer";
 import QuestionChoice from "./components/QuestionChoice";
-import { example1, example2 } from '../../data/products'
+import { example1, example2, example3 } from '../../data/products'
+import { useState } from "react";
+import ReportDialog from "./components/ReportDialog";
 
 function Products() {
   const controller = useController();
   const classes = useStyles();
+
+  const [openReportDialog, setOpenReportDialog] = useState(false)
+  const [reportData, setReportData] = useState({})
+
   return (
     <>
+      {/*  */}
+      <ReportDialog
+        open={openReportDialog}
+        onClose={() => setOpenReportDialog(false)}
+        onChange={(data) => setReportData({ ...reportData, reports: data })}
+        onSubmit={() => controller.sendReportHandle(reportData)}
+      />
+
+      {/*  */}
       <Container maxWidth="xl" sx={{ my: 10 }}>
         <Box className={classes.container}>
           {/* Header */}
@@ -33,7 +48,7 @@ function Products() {
               Question Generator
             </Typography>
 
-            <Typography className={classes.headerParagraph} variant="body1">
+            <div className={classes.headerTitle}>
               สร้างแบบทดสอบของคุณเองง่ายๆ ด้วย AI เพียงไม่กี่คลิ๊ก!
               <ol>
                 <li>เตรียมไฟล์บทความของคุณ (นามสกุลไฟล์ .txt)</li>
@@ -45,7 +60,7 @@ function Products() {
                 <li>กด Generate เพื่อสร้างแบบทดสอบ</li>
                 <li>ทดลองทำแบบทดสอบของคุณ!</li>
               </ol>
-            </Typography>
+            </div>
           </div>
           {/* Header */}
 
@@ -65,7 +80,7 @@ function Products() {
               >
                 <Button title='Example 1' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
                 <Button title='Example 2' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example2)} />
-                <Button title='Example 3' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
+                <Button title='Example 3' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example3)} />
               </div>
 
               <UploadText file={controller.file} onChange={(result) => {
@@ -120,7 +135,7 @@ function Products() {
                 sx={{
                   width: "100%",
                   minHeight: "80vh",
-                  maxHeight: "150vh",
+                  maxHeight: "100vh",
                   bgcolor: INFO,
                   boxShadow: "inset 0px 1px 10px 0px #5e5e5e",
                   borderRadius: 3,
@@ -148,7 +163,10 @@ function Products() {
                         answers={item["answer"]}
                         ansid={item["ansid"]}
                         isAnswer={controller.isAnswer}
-                        handleSendReport={() => controller.sendReportHandle(ind + 1)}
+                        handleSendReport={() => {
+                          setOpenReportDialog(true)
+                          setReportData({ index: ind + 1, ...item })
+                        }}
                       />
                     );
                   // Return Question Type BLK
@@ -159,11 +177,34 @@ function Products() {
                       question={item["question"]}
                       answer={item["answer"][0]}
                       isAnswer={controller.isAnswer}
-                      handleSendReport={() => controller.sendReportHandle(ind + 1)}
+                      handleSendReport={() => {
+                        setOpenReportDialog(true)
+                        setReportData({ index: ind + 1, ...item })
+                      }}
                     />
                   );
                 })}
 
+                {/* <QuestionBlank
+                  index={1}
+                  question={"question"}
+                  answer={"answer"}
+                  handleSendReport={() => {
+                    setOpenReportDialog(true)
+                    setReportData({ index: 1, question: 12123123, answer: 12123123 })
+                  }}
+                />
+                <QuestionChoice
+                  index={1}
+                  question={"question"}
+                  answers={[1, 2, 3, 4]}
+                  ansid={1}
+                  isAnswer={controller.isAnswer}
+                  handleSendReport={() => {
+                    setOpenReportDialog(true)
+                    setReportData({ index: 1, question: 12123123, answer: 12123123 })
+                  }}
+                /> */}
                 {controller.questions.length > 0 && (
                   <QuestionAnswer
                     onClick={() => controller.setIsAnswer(true)}
@@ -192,7 +233,7 @@ const useStyles = makeStyles((theme) => ({
   headerTitle: {
     fontFamily: "Prompt",
     fontWeight: "bolder",
-    background: "linear-gradient(45deg,#222668 0%, #6390CB 40%)",
+    background: "linear-gradient(45deg,#222668 80%, #6390CB 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   },
@@ -233,6 +274,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       marginTop: 10,
       marginBottom: 10
+    }
+  },
+  actionButton: {
+    width: 110,
+    m: 1,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
     }
   }
 }));

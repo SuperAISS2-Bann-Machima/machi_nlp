@@ -13,6 +13,12 @@ const client = axios.create({
     }
 })
 
+// Json Client
+const jlient = axios.create({
+    baseURL: 'http://localhost:5432/'
+})
+
+// Client API ZONE --------------------------------
 // Word Segmentation
 export function WordSegmentAPI(data) {
     return client.post('/ws', {
@@ -48,4 +54,10 @@ export function QuestionGenrationAPI(data, type = 'BLK') {
         anstype: type,
         sentence: data
     })
+}
+
+// Json Client API ZONE ----------------------------------
+// Add Reports
+export function AddReport(data) {
+    return jlient.post('/reports', data)
 }
