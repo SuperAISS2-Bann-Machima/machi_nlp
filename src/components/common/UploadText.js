@@ -12,10 +12,10 @@ function UploadText({ onChange = (result) => { } }) {
       reader.onabort = () => console.log("file reading was aborted");
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = function (e) {
-        onChange(e.target.result)
         var content = reader.result;
         var fileName = file.name;
         setContent(content);
+        onChange(content)
         setFileName(fileName);
       };
       reader.readAsText(file);

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { QuestionGenrationAPI } from "../../../api";
-import base64 from 'base-64'
+import base64 from 'base64-utf8'
 
 const context = createContext();
 
@@ -19,6 +19,8 @@ class Controller {
         this.setIsAnswer = context.setIsAnswer;
 
         this.questions = context.questions;
+
+        this.setFile = context.setFile
     }
 }
 
@@ -37,7 +39,7 @@ export function ProductsProvider({ children }) {
 
     function QuestionGenerationHandle() {
         empytyHandle();
-        const data = base64.encode(file);
+        const data = base64.encode(file)
 
         QuestionGenrationAPI(data, anstype)
             .then((res) => {

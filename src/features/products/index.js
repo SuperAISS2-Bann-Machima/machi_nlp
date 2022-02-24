@@ -58,7 +58,19 @@ function Products() {
                 Put your text file
               </Typography>
 
-              <UploadText onChange={(result) => {}} />
+              <div
+                style={{
+
+                }}
+              >
+                <Button title='Example 1' />
+                <Button title='Example 2' />
+                <Button title='Example 3' />
+              </div>
+
+              <UploadText onChange={(result) => {
+                controller.setFile(result)
+              }} />
 
               <RadioGroup
                 sx={{ my: 1 }}
