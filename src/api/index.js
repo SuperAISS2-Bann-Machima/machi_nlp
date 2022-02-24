@@ -5,7 +5,7 @@ const token = 'RANDOMSTRING_16_CHARS'
 
 // Client API
 const client = axios.create({
-    baseURL: 'https://web.machima.superai.me',
+    baseURL: 'https://nlp1.machima.superai.me',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
