@@ -7,10 +7,12 @@ import { Container, Grid, Typography } from "@mui/material"
 import cover from '../../assets/images/cover.png'
 import { BACKGROUND, INFO, PRIMARY, SECONDARY, WHITE } from "../../constant/colors"
 import Button from '../../components/common/Button'
+import { useNavigate } from 'react-router-dom'
 
 function Core() {
     const controller = useController()
     const classes = useStyles()
+    const navigate = useNavigate()
 
     const CoverButton = ({ title, colorBtn, textColor, onClick = () => { } }) => (
         <Button
@@ -38,15 +40,25 @@ function Core() {
                         </Typography>
 
                         <div className={classes.coverButtons}>
-                            <CoverButton title='Get Start' colorBtn={BACKGROUND} textColor={WHITE} />
-                            <CoverButton title='Learn more' colorBtn={INFO} textColor={BACKGROUND} />
+                            <CoverButton
+                                title='Get Start'
+                                colorBtn={BACKGROUND}
+                                textColor={WHITE}
+                                onClick={() => navigate('/products')}
+                            />
+                            <CoverButton
+                                title='Learn more'
+                                colorBtn={INFO}
+                                textColor={BACKGROUND}
+                                onClick={() => { document.getElementById('overview').scrollIntoView() }}
+                            />
                         </div>
                     </div>
                 </div>
                 {/* Cover */}
 
                 {/* Feature Overview */}
-                <div className={classes.overviewContainer}>
+                <div id="overview" className={classes.overviewContainer}>
                     <Grid container >
                         {
                             featureOverviews.map((item, ind) => (
@@ -129,10 +141,12 @@ function Core() {
                             <Typography className={classes.yusHeader3}>
                                 Start Generate Question
                             </Typography>
+
                             <Button
                                 title="Get Start"
                                 colorBtn={BACKGROUND}
                                 sx={{ padding: 2, width: 225 }}
+                                onClick={() => navigate('/products')}
                             />
                         </div>
                     </Container>
