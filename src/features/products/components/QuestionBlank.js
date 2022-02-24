@@ -1,10 +1,14 @@
 import { FormControlLabel, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { ERROR, WHITE } from "../../../constant/colors";
-import Switch from '@mui/material/Switch'
+// import Switch from '@mui/material/Switch'
+import Button from "../../../components/common/Button";
+import { Visibility, VisibilityOff, Flag as ReportIcon } from "@mui/icons-material";
+import { makeStyles } from "@mui/styles";
 
-export default function QuestionBlank({ index, question, answer, isAnswer }) {
+export default function QuestionBlank({ index, question, answer, isAnswer, handleSendReport = () => { } }) {
     const [ownAnswer, setOwnAnswer] = useState(false)
+    const classes = useStyles()
     return (
         <>
             <Paper
@@ -47,22 +51,33 @@ export default function QuestionBlank({ index, question, answer, isAnswer }) {
                 />
 
                 <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'flex-end',
-                        alignItems: 'center'
-                    }}
+                    className={classes.actionContainer}
                 >
-                    <FormControlLabel
+                    {/* <FormControlLabel
                         label='answer'
                         control={
                             <Switch value={ownAnswer} />
                         }
                         onClick={(e) => setOwnAnswer(e.target.checked)}
-                    />
+                    /> */}
+                    <Button icon={ownAnswer ? <Visibility /> : <VisibilityOff />} title='Answer' sx={{ width: 110, mx: 1 }} onClick={() => setOwnAnswer(!ownAnswer)} />
+                    <Button icon={<ReportIcon />} title='Report' sx={{ width: 110, mx: 1 }} variant='outlined' onClick={handleSendReport} />
                 </div>
             </Paper>
         </>
     )
 }
+
+const useStyles = makeStyles(theme => ({
+    actionContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        marginTop: 20,
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            justifyContent: 'center',
+        }
+    }
+}))

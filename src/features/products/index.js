@@ -148,6 +148,7 @@ function Products() {
                         answers={item["answer"]}
                         ansid={item["ansid"]}
                         isAnswer={controller.isAnswer}
+                        handleSendReport={() => controller.sendReportHandle(ind + 1)}
                       />
                     );
                   // Return Question Type BLK
@@ -158,6 +159,7 @@ function Products() {
                       question={item["question"]}
                       answer={item["answer"][0]}
                       isAnswer={controller.isAnswer}
+                      handleSendReport={() => controller.sendReportHandle(ind + 1)}
                     />
                   );
                 })}

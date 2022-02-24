@@ -25,6 +25,8 @@ class Controller {
         this.file = context.file
 
         this.qgLoading = context.qgLoading
+
+        this.sendReportHandle = context.sendReportHandle
     }
 }
 
@@ -39,6 +41,10 @@ export function ProductsProvider({ children }) {
     const [file, setFile] = useState();
 
     const [qgLoading, setQgLoading] = useState(false)
+
+    function sendReportHandle(index) {
+        global.setFlashMsg({ type: 'success', msg: `ส่งคำร้องข้อ ${index} สำเร็จ`, open: true })
+    }
 
     function empytyHandle() {
         setIsAnswer(false);
@@ -75,7 +81,8 @@ export function ProductsProvider({ children }) {
                 setIsAnswer,
                 questions,
                 setFile, file,
-                qgLoading, setQgLoading
+                qgLoading, setQgLoading,
+                sendReportHandle
             }}
         >
             {children}
