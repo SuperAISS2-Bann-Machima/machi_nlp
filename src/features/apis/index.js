@@ -4,7 +4,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
-import { Typography } from "@mui/material";
+import { Grow, Typography } from "@mui/material";
 import ApiInputCard from "./components/ApiInputCard";
 import ApiOutputCard from "./components/ApiOutputCard";
 import ReactJson from "react-json-view";
@@ -27,55 +27,59 @@ function APIS() {
       </Box>
 
       {
-        !controller.wordSeg ? (<></>) : (<>
-          {/* Task1 */}
-          <Box>
-            <Card variant="outlined" sx={{ m: 1 }}>
-              <ApiOutputCard title="Task 1 Word Segment">
-                <Typography sx={{ fontFamily: 'Prompt' }}>
-                  {controller.wordSeg}
-                </Typography >
-              </ApiOutputCard>
-            </Card>
-          </Box>
-          {/* Task1 */}
+        !controller.wordSeg ? (<></>) : (
+          <Grow in={true} {...({ timeout: 500 })}>
+            <div>
+              {/* Task1 */}
+              <Box>
+                <Card variant="outlined" sx={{ m: 1 }}>
+                  <ApiOutputCard title="Task 1 Word Segment">
+                    <Typography sx={{ fontFamily: 'Prompt' }}>
+                      {controller.wordSeg}
+                    </Typography >
+                  </ApiOutputCard>
+                </Card>
+              </Box>
+              {/* Task1 */}
 
-          {/* Task2 */}
-          <Box>
-            <Card variant="outlined" sx={{ m: 1 }}>
-              <ApiOutputCard title="Task 2 POS Tagging">
-                <OutputJson>
-                  <ReactJson name='POS tagging' src={controller.pos} />
-                </OutputJson>
-              </ApiOutputCard>
-            </Card>
-          </Box>
-          {/* Task2 */}
+              {/* Task2 */}
+              <Box>
+                <Card variant="outlined" sx={{ m: 1 }}>
+                  <ApiOutputCard title="Task 2 POS Tagging">
+                    <OutputJson>
+                      <ReactJson name='POS tagging' src={controller.pos} />
+                    </OutputJson>
+                  </ApiOutputCard>
+                </Card>
+              </Box>
+              {/* Task2 */}
 
-          {/* Task3 */}
-          <Box>
-            <Card variant="outlined" sx={{ m: 1 }}>
-              <ApiOutputCard title="Task 3 NER">
-                <OutputJson>
-                  <ReactJson name='NER' src={controller.ner} />
-                </OutputJson>
-              </ApiOutputCard>
-            </Card>
-          </Box>
-          {/* Task3 */}
+              {/* Task3 */}
+              <Box>
+                <Card variant="outlined" sx={{ m: 1 }}>
+                  <ApiOutputCard title="Task 3 NER">
+                    <OutputJson>
+                      <ReactJson name='NER' src={controller.ner} />
+                    </OutputJson>
+                  </ApiOutputCard>
+                </Card>
+              </Box>
+              {/* Task3 */}
 
-          {/* Task4 */}
-          <Box>
-            <Card variant="outlined" sx={{ m: 1 }}>
-              <ApiOutputCard title="Task 4 Sentence Segment">
-                <Typography sx={{ fontFamily: 'Prompt' }}>
-                  {controller.senSeg}
-                </Typography>
-              </ApiOutputCard>
-            </Card>
-          </Box>
-          {/* Task4 */}
-        </>)
+              {/* Task4 */}
+              <Box>
+                <Card variant="outlined" sx={{ m: 1 }}>
+                  <ApiOutputCard title="Task 4 Sentence Segment">
+                    <Typography sx={{ fontFamily: 'Prompt' }}>
+                      {controller.senSeg}
+                    </Typography>
+                  </ApiOutputCard>
+                </Card>
+              </Box>
+              {/* Task4 */}
+            </div>
+          </Grow>
+        )
       }
     </Container >
   );

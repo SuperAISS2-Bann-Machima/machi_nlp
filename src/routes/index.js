@@ -6,8 +6,8 @@ import Core from '../features/core'
 import Apis from '../features/apis'
 import NotFound from '../features/notfound'
 import Products from '../features/products'
-import Tutorial from '../features/tutorial'
-import Pat from '../features/pat'
+// import Tutorial from '../features/tutorial'
+// import Pat from '../features/pat'
 export default function Index() {
     return (
         <Router>

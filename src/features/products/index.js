@@ -25,7 +25,7 @@ function Products() {
                             className={classes.headerTitle}
                             variant='h5'
                         >
-                            RQA Generator
+                            Question Generator
                         </Typography>
 
                         <Typography

@@ -8,7 +8,7 @@ import cover from '../../assets/images/cover.png'
 import { BACKGROUND, INFO, PRIMARY, SECONDARY, WHITE } from "../../constant/colors"
 import Button from '../../components/common/Button'
 import { useNavigate } from 'react-router-dom'
-
+import { Grow } from "@mui/material"
 function Core() {
     const controller = useController()
     const classes = useStyles()
@@ -30,14 +30,18 @@ function Core() {
                 {/* Cover */}
                 <div className={classes.coverContainer}>
                     <div className={classes.coverBox}>
-                        <Typography className={classes.coverHeader1}>
-                            MACHI
-                            <br />
-                            QUEST
-                        </Typography>
-                        <Typography className={classes.coverHeader2}>
-                            Fuh yoo~
-                        </Typography>
+                        <Grow in={true} {...({ timeout: 1000 })}>
+                            <div>
+                                <Typography className={classes.coverHeader1}>
+                                    MACHI
+                                    <br />
+                                    QUEST
+                                </Typography>
+                                <Typography className={classes.coverHeader2}>
+                                    Fuh yoo~
+                                </Typography>
+                            </div>
+                        </Grow>
 
                         <div className={classes.coverButtons}>
                             <CoverButton
