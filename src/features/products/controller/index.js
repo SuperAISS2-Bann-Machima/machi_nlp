@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { QuestionGenrationAPI } from "../../../api";
 import base64 from 'base64-utf8'
+import { useController as useGlobalController } from '../../../core/GlobalController'
 
 const context = createContext();
 
@@ -28,6 +29,8 @@ class Controller {
 }
 
 export function ProductsProvider({ children }) {
+    const global = useGlobalController()
+
     const [questions, setQuestions] = useState([]);
 
     const [anstype, setAnstype] = useState("MUL");
@@ -43,6 +46,11 @@ export function ProductsProvider({ children }) {
     }
 
     function QuestionGenerationHandle() {
+        if (!file) {
+            global.setFlashMsg({ type: 'error', msg: 'กรุณาอัปโหลดไฟล์', open: true })
+            return null
+        }
+
         empytyHandle();
         setQgLoading(true)
         const data = base64.encode(file)
