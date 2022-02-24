@@ -1,48 +1,52 @@
-import Lightbulb from '@mui/icons-material/Lightbulb'
+import Lightbulb from "@mui/icons-material/Lightbulb";
 
 // Features Overview
 export const featureOverviews = [
-    {
-        title: 'users',
-        value: '200K+'
-    },
-    {
-        title: 'category',
-        value: 3
-    },
-    {
-        title: 'questions',
-        value: '10K+'
-    }
-]
+  {
+    title: "users",
+    value: "200K+",
+  },
+  {
+    title: "type",
+    value: 3,
+  },
+  {
+    title: "questions",
+    value: "10K+",
+  },
+];
 
 // Features Detail
 export const featureDetails = [
-    {
-        title: 'Choices',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        icon: <Lightbulb sx={{ fontSize: 50 }} />
-    }, {
-        title: 'Blank',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        icon: <Lightbulb sx={{ fontSize: 50 }} />
-    }, {
-        title: 'QA',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        icon: <Lightbulb sx={{ fontSize: 50 }} />
-    },
-]
+  {
+    title: "Choices",
+    desc: "แบบทดสอบ Choices เป็นแบบทดสอบประเภท ตัวเลือก โดยจะมีตัวเลือกให้ตอบจำนวนสี่ตัวเลือก เมื่อเลือกเสร็จสามารถกดดูคำตอบได้",
+    icon: <Lightbulb sx={{ fontSize: 50 }} />,
+  },
+  {
+    title: "Blank",
+    desc: "แบบทดสอบ Blank เป็นแบบทดสอบประเภทเติมคำในช่องว่างที่หายไปให้ถูดต้อง โดยจะมีประโยคมาหนึ่งประโยคและจะมีส่วนที่หายไปหนึ่งส่วนให้ผู้ทดสอบได้เติมคำ และสามารถกดดูเฉลยได้",
+    icon: <Lightbulb sx={{ fontSize: 50 }} />,
+  },
+  {
+    title: "QA",
+    desc: "แบบทดสอบ QA หรือ Question and Answer เป็นแบบทดสอบประเภททที่จะมีประโยคคำถามมาให้หนึ่งคำถาม และให้ผู้ทำแบบทดสอบตอบคำถามนั้นๆ ",
+    icon: <Lightbulb sx={{ fontSize: 50 }} />,
+  },
+];
 
 // Why Us
 export const whyUs = [
-    {
-        title: 'สะดวก',
-        desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-    }, {
-        title: 'รวดเร็ว',
-        desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-    }, {
-        title: 'หลายรูปแบบ',
-        desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-    }
-]
+  {
+    title: "สะดวก",
+    desc: "เว็บไซต์ของเราสามารถใช้ได้ง่ายและสะดวกในการสร้างแบบทดสอบเพียงแค่คลิ๊ก เลือก และสร้าง โดยการคลิ๊กนั้นเพื่อทำการเลือกไฟล์ที่เป็นเนื้อหาของบทความของเรา หรือจะลากมาวางก้สามารถทำได้ เลือกก็คือการเลือกประเภทของแบบที่ทดสอบที่จะให้ AIของเราสร้างขึ้นมา และการสร้างก็คือการกดปุ่มคำสั่ง generate เพื่อส่งข้อมูลให้ AI จากนั้นก็รอรับแบบทดสอบได้เภายในเวลาไม่นาน",
+  },
+  {
+    title: "รวดเร็ว",
+    desc: "การบวนการสร้างแบบทดสอบด้วยการคลิ๊กเพียงไม่กี่ครั้ง และ AI ของเราจะทำการสร้างแบบทดสอบให้คุณในเวลาไม่นาน!",
+  },
+  {
+    title: "หลายรูปแบบ",
+    desc: "แบบทดสอบที่เราสามารถสร้างขึ้นได้นั้นมีสามรูปแบบให้เลือกสร้างได้ตามความต้องการ",
+  },
+];
