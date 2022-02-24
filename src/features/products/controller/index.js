@@ -22,6 +22,8 @@ class Controller {
 
         this.setFile = context.setFile
         this.file = context.file
+
+        this.qgLoading = context.qgLoading
     }
 }
 
@@ -33,6 +35,8 @@ export function ProductsProvider({ children }) {
 
     const [file, setFile] = useState();
 
+    const [qgLoading, setQgLoading] = useState(false)
+
     function empytyHandle() {
         setIsAnswer(false);
         setQuestions([]);
@@ -40,11 +44,13 @@ export function ProductsProvider({ children }) {
 
     function QuestionGenerationHandle() {
         empytyHandle();
+        setQgLoading(true)
         const data = base64.encode(file)
 
         QuestionGenrationAPI(data, anstype)
             .then((res) => {
                 setQuestions(res.data.resp);
+                setQgLoading(false)
             })
             .catch((err) => {
                 console.log(err);
@@ -60,7 +66,8 @@ export function ProductsProvider({ children }) {
                 isAnswer,
                 setIsAnswer,
                 questions,
-                setFile, file
+                setFile, file,
+                qgLoading, setQgLoading
             }}
         >
             {children}

@@ -6,6 +6,7 @@ import {
   Radio,
   RadioGroup,
   Typography,
+  LinearProgress,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
@@ -132,6 +133,10 @@ function Products() {
                   overflowY: "auto",
                 }}
               >
+                {
+                  controller.qgLoading && (<LinearProgress sx={{ width: '100%', height: 5, borderRadius: 25 }} />)
+                }
+
                 {controller.questions.map((item, ind) => {
                   // Return Question Type MUL
                   if (item.anstype === "MUL")
