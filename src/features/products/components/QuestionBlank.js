@@ -31,7 +31,7 @@ export default function QuestionBlank({ index, question, answer, isAnswer, handl
                     }}
                 >
                     <Typography component='strong'>
-                        {index}.&nbsp;
+                        {index}. &nbsp;
                     </Typography>
                     {question}
                 </Typography>

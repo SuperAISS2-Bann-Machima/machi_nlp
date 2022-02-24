@@ -40,7 +40,7 @@ export default function QuestionChoice({
                     }}
                 >
                     <Typography component='strong'>
-                        {index}.&nbsp;
+                        {index}. &nbsp;
                     </Typography>
                     {question}
                 </Typography>

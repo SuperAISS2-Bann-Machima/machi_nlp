@@ -18,7 +18,7 @@ import Button from "../../components/common/Button";
 import QuestionBlank from "./components/QuestionBlank";
 import QuestionAnswer from "./components/QuestionAnswer";
 import QuestionChoice from "./components/QuestionChoice";
-import { example1 } from '../../data/products'
+import { example1, example2 } from '../../data/products'
 
 function Products() {
   const controller = useController();
@@ -64,7 +64,7 @@ function Products() {
                 className={classes.contentExampleContainer}
               >
                 <Button title='Example 1' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
-                <Button title='Example 2' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
+                <Button title='Example 2' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example2)} />
                 <Button title='Example 3' className={classes.contentExampleButton} sx={{ width: 200, mx: 2 }} onClick={() => controller.setFile(example1)} />
               </div>
 
